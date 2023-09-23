@@ -1,4 +1,4 @@
-package factory
+package car
 
 type ICar interface {
 	GetDoors() uint8

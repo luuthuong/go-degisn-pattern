@@ -1,11 +1,13 @@
-package factory
+package car
+
+import "design-pattern/factory"
 
 const (
 	LuxuryType   = 1
 	FamiliarType = 2
 )
 
-type CarFactory struct {
+type Factory struct {
 }
 
 type LuxuryCar struct{}
@@ -36,7 +38,7 @@ func (f FamiliarCar) GetDoors() uint8 {
 	return 6
 }
 
-func (c *CarFactory) GetVehicle(v int) (IVehicle, error) {
+func (c *Factory) GetVehicle(v int) (factory.IVehicle, error) {
 	switch v {
 	case LuxuryType:
 		return new(LuxuryCar), nil

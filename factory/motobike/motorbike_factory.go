@@ -1,11 +1,13 @@
-package factory
+package motobike
+
+import "design-pattern/factory"
 
 const (
 	SportType  = 1
 	CruiseType = 2
 )
 
-type MotorbikeFactory struct {
+type Factory struct {
 }
 
 type SportMotorbike struct {
@@ -38,7 +40,7 @@ func (c CruiseMotorbike) GetType() string {
 	return "Cruise"
 }
 
-func (m *MotorbikeFactory) GetVehicle(v int) (IVehicle, error) {
+func (m *Factory) GetVehicle(v int) (factory.IVehicle, error) {
 	switch v {
 	case SportType:
 		return new(SportMotorbike), nil
