@@ -1,6 +1,7 @@
-package factory
+package main
 
 import (
+	f "design-pattern/factory"
 	c "design-pattern/factory/car"
 	m "design-pattern/factory/motobike"
 	"errors"
@@ -13,7 +14,7 @@ const (
 )
 
 type IVehicleFactory interface {
-	GetVehicle(v int) (IVehicle, error)
+	GetVehicle(v int) (f.IVehicle, error)
 }
 
 func GetFactory(f int) (IVehicleFactory, error) {
@@ -25,4 +26,9 @@ func GetFactory(f int) (IVehicleFactory, error) {
 	default:
 		return nil, errors.New(fmt.Sprintf("Factory with id %d invalid.", f))
 	}
+}
+
+func PrintVehicle(v f.IVehicle) {
+	fmt.Printf("Seats: %d \n", v.GetSeats())
+	fmt.Printf("Wheels: %d \n", v.GetWheels())
 }
