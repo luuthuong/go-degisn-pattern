@@ -8,13 +8,13 @@ type ConcreteVisitor struct {
 func (c ConcreteVisitor) visitCarComponent(component IComponent) {
 	car := component.(*CarComponent)
 	fmt.Printf("Visit from concrete.\n")
-	car.carExecute()
+	fmt.Printf("Num of motorbike wheels: %d\n", car.getWheels())
 }
 
 func (c ConcreteVisitor) visitMotorbikeComponent(component IComponent) {
 	motorbike := component.(*MotorbikeComponent)
 	fmt.Printf("Visit from concrete.\n")
-	motorbike.motorbikeExecute()
+	fmt.Printf("Num of motorbike wheels: %d\n", motorbike.getWheels())
 }
 
 type ConcreteOther struct {
@@ -23,11 +23,11 @@ type ConcreteOther struct {
 func (c ConcreteOther) visitCarComponent(component IComponent) {
 	car := component.(*CarComponent)
 	fmt.Printf("Visit from concrete other.\n")
-	car.carExecute()
+	fmt.Printf("Num of motorbike wheels: %d\n", car.getWheels())
 }
 
 func (c ConcreteOther) visitMotorbikeComponent(component IComponent) {
-	car := component.(*CarComponent)
+	motorbike := component.(*MotorbikeComponent)
 	fmt.Printf("Visit from concrete other.\n")
-	car.carExecute()
+	fmt.Printf("Num of motorbike wheels: %d\n", motorbike.getWheels())
 }

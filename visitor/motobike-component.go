@@ -1,14 +1,12 @@
 package visitor
 
-import "fmt"
-
 type MotorbikeComponent struct {
+}
+
+func (m *MotorbikeComponent) getWheels() uint8 {
+	return 2
 }
 
 func (m *MotorbikeComponent) Accept(visitor IVisitor) {
 	visitor.visitMotorbikeComponent(m)
-}
-
-func (m *MotorbikeComponent) motorbikeExecute() {
-	fmt.Println("Motorbike component executing....")
 }
